@@ -1,0 +1,193 @@
+.task-app {
+  width: 100%;
+  max-width: 620px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--text-h);
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.subtitle {
+  margin: 4px 0 24px;
+  color: var(--muted);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* --- API mode switch ---------------------------------------------------- */
+
+.api-mode {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.mode {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-h);
+  font-weight: 600;
+  transition: border-color 0.15s, background 0.15s;
+}
+.mode.healthy.active {
+  border-color: var(--ok);
+  background: var(--ok-bg);
+}
+.mode.failing.active {
+  border-color: var(--err);
+  background: var(--err-bg);
+}
+
+/* --- Request status bar ------------------------------------------------- */
+
+.status {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: var(--mono);
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.status.busy {
+  color: var(--warn);
+  background: var(--warn-bg);
+  border-color: transparent;
+}
+
+/* --- Task list ---------------------------------------------------------- */
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tasks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  transition: opacity 0.15s;
+}
+.tasks li:first-child {
+  border-top: none;
+}
+.tasks li.pending {
+  opacity: 0.55;
+}
+
+.tasks label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.tasks input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--accent);
+  cursor: inherit;
+  flex-shrink: 0;
+}
+
+.tasks .title {
+  color: var(--text-h);
+}
+.tasks li.done .title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.tasks .empty {
+  justify-content: center;
+  color: var(--muted);
+}
+
+.delete {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--err);
+  font-size: 15px;
+}
+.delete:hover:not(:disabled) {
+  background: var(--err-bg);
+}
+
+.reset {
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* --- Network log -------------------------------------------------------- */
+
+.log {
+  margin-top: 32px;
+}
+.log ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.log li {
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+.log li.success {
+  color: var(--ok);
+  background: var(--ok-bg);
+}
+.log li.error {
+  color: var(--err);
+  background: var(--err-bg);
+}
+.log time {
+  opacity: 0.7;
+  margin-right: 6px;
+}
+.log-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
